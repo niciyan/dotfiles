@@ -1,3 +1,4 @@
+
 syntax on
 filetype plugin indent on
 
@@ -73,7 +74,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set hidden
-set splitright
+"set splitright
 set splitbelow
 set autochdir
 set clipboard=unnamed,autoselect
@@ -84,52 +85,6 @@ set ignorecase
 set smartcase
 set incsearch 
 set wildmenu
-"set cursorline
-"hi CursorLineNr term=bold   cterm=bold ctermfg=81 ctermbg=NONE
-"
-"" 初期状態はcursorlineを表示しない
-"" 以下の一行は必ずcolorschemeの設定後に追加すること
-"hi clear CursorLine
-"
-"" 'cursorline' を必要な時にだけ有効にする
-"" http://d.hatena.ne.jp/thinca/20090530/1243615055
-"" を少し改造、number の highlight は常に有効にする
-"augroup vimrc-auto-cursorline
-"  autocmd!
-"  autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
-"  autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
-"  autocmd WinEnter * call s:auto_cursorline('WinEnter')
-"  autocmd WinLeave * call s:auto_cursorline('WinLeave')
-"
-"  setlocal cursorline
-"  hi clear CursorLine
-"
-"  let s:cursorline_lock = 0
-"  function! s:auto_cursorline(event)
-"    if a:event ==# 'WinEnter'
-"      setlocal cursorline
-"      hi CursorLine term=underline cterm=underline guibg=Grey90 " ADD
-"      let s:cursorline_lock = 2
-"    elseif a:event ==# 'WinLeave'
-"      setlocal nocursorline
-"      hi clear CursorLine " ADD
-"    elseif a:event ==# 'CursorMoved'
-"      if s:cursorline_lock
-"        if 1 < s:cursorline_lock
-"          let s:cursorline_lock = 1
-"        else
-"          " setlocal nocursorline
-"          hi clear CursorLine " ADD
-"          let s:cursorline_lock = 0
-"        endif
-"      endif
-"    elseif a:event ==# 'CursorHold'
-"      " setlocal cursorline
-"      hi CursorLine term=underline cterm=underline guibg=Grey90 " ADD
-"      let s:cursorline_lock = 1
-"    endif
-"  endfunction
-"augroup END
 
 nnoremap zj <C-w>j
 nnoremap zk <C-w>k
@@ -141,17 +96,17 @@ nnoremap zH <C-w>H
 nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
 
-inoremap <C-x> <C-o>$
-inoremap <C-f> <C-o>l
+imap <C-l> <Right>
 
 autocmd BufNewFile,BufRead *.rb nnoremap  :!ruby %
 autocmd BufNewFile,BufRead *.py nnoremap <C-l> :!python3 %
 autocmd BufNewFile,BufRead *.pl nnoremap  :!perl %
 
-
+let mapleader = "\<Space>" 
+nnoremap <Leader>w :w<CR>
 
 autocmd vimenter * NERDTree /home/nishi
-
+nnoremap <F5> :NERDTreeToggle<CR>
 
 let g:neosnippet#snippets_directory='~/mysnippet'
 
@@ -159,7 +114,7 @@ let g:neosnippet#snippets_directory='~/mysnippet'
 nnoremap rc :tabe ~/.vimrc<CR>
 nnoremap grc :tabe ~/.gvimrc<CR>
 
-let g:user_emmet_leader_key = '<C-m>'
+"let g:user_emmet_leader_key = '<C-m>'
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -204,9 +159,9 @@ nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-let g:quickrun_no_default_key_mappings = 1
-nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>        
-xnoremap <Space>r :<C-U>write<CR>gv:QuickRun -mode v<CR> 
+"let g:quickrun_no_default_key_mappings = 1
+"nnoremap <Space>r :write<CR>:QuickRun -mode n<CR>        
+"xnoremap <Space>r :<C-U>write<CR>gv:QuickRun -mode v<CR> 
 
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
@@ -220,7 +175,6 @@ let g:quickrun_config._ = {
       \ 'outputter' : 'error',
       \ 'outputter/error/success' : 'buffer',
       \ 'outputter/error/error'   : 'quickfix',
-      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
       \ 'outputter/buffer/close_on_empty' : 1,
       \ }
 
@@ -290,11 +244,11 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -307,3 +261,17 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#popup_select_first=1
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#auto_initialization = 1
+let g:jedi#show_call_signatures = "1"
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
+
+
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
