@@ -3,6 +3,9 @@ set guifont=Migu\ 1M\ 13
 set background=dark
 colorscheme solarized
 
+set guioptions-=m
+set guioptions-=T
+
 "if !has('gui_running')
   "augroup term_vim_c_space
     "autocmd!

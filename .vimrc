@@ -43,6 +43,8 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('Shougo/vimproc.vim',{'build' : 'make'})
   call dein#add('Shougo/vimshell.vim')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('vim-jp/vim-go-extra')
+  "call dein#add('fatih/vim-go')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -74,7 +76,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set hidden
-"set splitright
+set splitright
 set splitbelow
 set autochdir
 set clipboard=unnamed,autoselect
@@ -145,7 +147,7 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 
 """ unite.vim
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=1
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
