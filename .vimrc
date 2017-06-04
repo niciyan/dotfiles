@@ -20,7 +20,7 @@ if dein#load_state('/home/nishi/.vim')
 
   " Add or remove your plugins here:
 
-  call dein#add('Shougo/neocomplcache')
+  " call dein#add('Shougo/neocomplcache')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('mattn/emmet-vim')
   call dein#add('Shougo/neosnippet')
@@ -43,8 +43,11 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('Shougo/vimproc.vim',{'build' : 'make'})
   call dein#add('Shougo/vimshell.vim')
   call dein#add('itchyny/lightline.vim')
-  call dein#add('vim-jp/vim-go-extra')
-  "call dein#add('fatih/vim-go')
+  " call dein#add('vim-jp/vim-go-extra')
+  call dein#add('w0ng/vim-hybrid')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('fatih/vim-go')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -88,6 +91,9 @@ set smartcase
 set incsearch 
 set wildmenu
 
+set background=dark
+colorscheme hybrid
+
 nnoremap zj <C-w>j
 nnoremap zk <C-w>k
 nnoremap zh <C-w>h
@@ -97,6 +103,7 @@ nnoremap zK <C-w>k
 nnoremap zH <C-w>H
 nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
+nnoremap cmd :!gnome-terminal &<CR>
 
 imap <C-l> <Right>
 
@@ -277,3 +284,6 @@ autocmd FileType python setlocal completeopt-=preview
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+"for json 
+autocmd FileType json setlocal conceallevel=0
