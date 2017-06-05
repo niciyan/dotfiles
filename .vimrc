@@ -271,19 +271,15 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#popup_select_first=1
 let g:jedi#completions_enabled = 1
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#auto_initialization = 1
 let g:jedi#show_call_signatures = "1"
 let g:jedi#popup_on_dot = 0
-autocmd FileType python setlocal completeopt-=preview
 
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-"for json 
-autocmd FileType json setlocal conceallevel=0
