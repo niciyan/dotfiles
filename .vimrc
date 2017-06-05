@@ -117,7 +117,7 @@ nnoremap <Leader>w :w<CR>
 autocmd vimenter * NERDTree /home/nishi
 nnoremap <F5> :NERDTreeToggle<CR>
 
-let g:neosnippet#snippets_directory='~/mysnippet'
+let g:neosnippet#snippets_directory='~/.vim/dotfiles/mysnippet'
 
 
 nnoremap rc :tabe ~/.vimrc<CR>
