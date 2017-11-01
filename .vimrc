@@ -8,15 +8,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/nishi/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/$USER/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/nishi/.vim')
-  call dein#begin('/home/nishi/.vim')
+if dein#load_state('/home/$USER/.vim')
+  call dein#begin('/home/$USER/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/nishi/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/$USER/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
 
@@ -104,17 +104,9 @@ nnoremap zH <C-w>H
 nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
 nnoremap cmd :!gnome-terminal &<CR>
-
-imap <C-l> <Right>
-
-autocmd BufNewFile,BufRead *.rb nnoremap  :!ruby %
-autocmd BufNewFile,BufRead *.py nnoremap <C-l> :!python3 %
-autocmd BufNewFile,BufRead *.pl nnoremap  :!perl %
-
 let mapleader = "\<Space>" 
-nnoremap <Leader>w :w<CR>
+"nnoremap <Leader>w :w<CR>
 
-autocmd vimenter * NERDTree /home/nishi
 nnoremap <F5> :NERDTreeToggle<CR>
 
 let g:neosnippet#snippets_directory='~/.vim/dotfiles/mysnippet'
