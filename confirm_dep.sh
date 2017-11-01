@@ -33,5 +33,5 @@ fi
 
 echo "\n\nYou have to run below for dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh .vim
+sh ./installer.sh ~/.vim
 "
