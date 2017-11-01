@@ -8,15 +8,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/$USER/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/'.$USER.'/.vim')
-  call dein#begin('/home/'.$USER.'/.vim')
+if dein#load_state($HOME.'/.vim')
+  call dein#begin($HOME.'/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/'.$USER.'/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add($HOME.'/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
 
