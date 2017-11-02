@@ -1,4 +1,6 @@
 # dotfiles
+Keep in mind that first you create $HOME/.vim directory.  
+Then, inside $HOME/.vim, you clone this repo.
 
 ## First confirm dependency
 run below 
