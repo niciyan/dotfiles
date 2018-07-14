@@ -34,9 +34,9 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('tomasr/molokai')
   call dein#add('davidhalter/jedi-vim')
   call dein#add('tyru/open-browser.vim')
-  " call dein#add('kannokanno/previm')
+  call dein#add('kannokanno/previm')
   call dein#add('altercation/vim-colors-solarized')
-  call dein#add('plasticboy/vim-markdown')
+  " call dein#add('plasticboy/vim-markdown')
   " call dein#add('mattn/webapi-vim')
   call dein#add('othree/html5.vim')
   call dein#add('tpope/vim-surround')
@@ -48,9 +48,11 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('fatih/vim-go')
+  call dein#add('cocopon/iceberg.vim')
+  call dein#add('tpope/vim-fugitive')
 
   " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   " Required:
   call dein#end()
@@ -82,7 +84,7 @@ set hidden
 set splitright
 set splitbelow
 set autochdir
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus
 set noswapfile
 set nobackup
 set noundofile
@@ -90,6 +92,7 @@ set ignorecase
 set smartcase
 set incsearch 
 set wildmenu
+set autoread
 
 set background=dark
 colorscheme hybrid
@@ -105,16 +108,9 @@ nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
 nnoremap cmd :!gnome-terminal &<CR>
 
-imap <C-l> <Right>
-
-autocmd BufNewFile,BufRead *.rb nnoremap  :!ruby %
-autocmd BufNewFile,BufRead *.py nnoremap <C-l> :!python3 %
-autocmd BufNewFile,BufRead *.pl nnoremap  :!perl %
-
 let mapleader = "\<Space>" 
-nnoremap <Leader>w :w<CR>
 
-autocmd vimenter * NERDTree /home/nishi
+" autocmd vimenter * NERDTree /home/nishi
 nnoremap <F5> :NERDTreeToggle<CR>
 
 let g:neosnippet#snippets_directory='~/.vim/dotfiles/mysnippet'
@@ -148,7 +144,6 @@ endif
 
 let g:quickrun_config = { 'python': { 'command': 'python3' } }
 
-set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
@@ -244,7 +239,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -276,10 +271,13 @@ let g:jedi#completions_enabled = 1
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#auto_initialization = 1
 let g:jedi#show_call_signatures = "1"
-let g:jedi#popup_on_dot = 0
+let g:jedi#popup_on_dot = 1
 
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+let cobol_legacy_code=0
+
+let g:neosnippet#disable_runtime_snippets = { 'go' : 1, }

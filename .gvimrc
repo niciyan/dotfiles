@@ -1,7 +1,7 @@
-set guifont=Migu\ 1M\ 13
+set guifont=Ubuntu\ Mono\ 13
 
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme iceberg
 
 " set guioptions-=m
 set guioptions-=T

@@ -1,0 +1,3 @@
+[submodule "mysnippet"]
+	path = mysnippet
+	url = https://github.com/niciyan/snippets.git

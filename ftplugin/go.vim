@@ -1,2 +1,2 @@
 inoremap <C-v> <Space>:=<Space>
-set completeopt=noselect,preview
+set completeopt=noselect,preview,menu
