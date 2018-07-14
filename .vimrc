@@ -8,15 +8,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/nishi/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/nishi/.vim')
-  call dein#begin('/home/nishi/.vim')
+if dein#load_state($HOME.'/.vim')
+  call dein#begin($HOME.'/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/nishi/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add($HOME.'/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
 
@@ -107,7 +107,6 @@ nnoremap zH <C-w>H
 nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
 nnoremap cmd :!gnome-terminal &<CR>
-
 let mapleader = "\<Space>" 
 
 " autocmd vimenter * NERDTree /home/nishi
@@ -239,7 +238,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
