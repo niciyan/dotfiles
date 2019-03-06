@@ -1,7 +1,8 @@
-set guifont=Migu\ 1M\ 13
+set guifont=Monaco:h14
+set imdisable
 
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme iceberg
 
 " set guioptions-=m
 set guioptions-=T
