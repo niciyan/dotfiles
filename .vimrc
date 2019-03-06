@@ -1,3 +1,5 @@
+if has('python3')
+endif
 
 syntax on
 filetype plugin indent on
@@ -8,15 +10,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/nishi/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/develop30/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/nishi/.vim')
-  call dein#begin('/home/nishi/.vim')
+if dein#load_state('/Users/develop30/.vim')
+  call dein#begin('/Users/develop30/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/nishi/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/develop30/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
 
@@ -32,11 +34,11 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('tpope/vim-commentary')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('tomasr/molokai')
-  call dein#add('davidhalter/jedi-vim')
+  " call dein#add('davidhalter/jedi-vim')
   call dein#add('tyru/open-browser.vim')
-  " call dein#add('kannokanno/previm')
+  call dein#add('kannokanno/previm')
   call dein#add('altercation/vim-colors-solarized')
-  call dein#add('plasticboy/vim-markdown')
+  " call dein#add('plasticboy/vim-markdown')
   " call dein#add('mattn/webapi-vim')
   call dein#add('othree/html5.vim')
   call dein#add('tpope/vim-surround')
@@ -48,9 +50,14 @@ if dein#load_state('/home/nishi/.vim')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('fatih/vim-go')
+  call dein#add('cocopon/iceberg.vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('soywod/vim-keepeye')
+  call dein#add('junegunn/goyo.vim')
+  call dein#add('airblade/vim-gitgutter')
 
   " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
   " Required:
   call dein#end()
@@ -90,6 +97,9 @@ set ignorecase
 set smartcase
 set incsearch 
 set wildmenu
+set expandtab
+set autoread
+set updatetime=100
 
 set background=dark
 colorscheme hybrid
@@ -103,7 +113,6 @@ nnoremap zK <C-w>k
 nnoremap zH <C-w>H
 nnoremap zL <C-w>L
 nnoremap <Space>z gUaw
-nnoremap cmd :!gnome-terminal &<CR>
 
 imap <C-l> <Right>
 
@@ -114,13 +123,13 @@ autocmd BufNewFile,BufRead *.pl nnoremap  :!perl %
 let mapleader = "\<Space>" 
 nnoremap <Leader>w :w<CR>
 
-autocmd vimenter * NERDTree /home/nishi
+autocmd vimenter * NERDTree .
 nnoremap <F5> :NERDTreeToggle<CR>
 
 let g:neosnippet#snippets_directory='~/.vim/dotfiles/mysnippet'
 
 
-nnoremap rc :tabe ~/.vimrc<CR>
+" nnoremap rc :tabe ~/.vimrc<CR>
 nnoremap grc :tabe ~/.gvimrc<CR>
 
 "let g:user_emmet_leader_key = '<C-m>'
@@ -148,7 +157,7 @@ endif
 
 let g:quickrun_config = { 'python': { 'command': 'python3' } }
 
-set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
+" set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
@@ -282,4 +291,15 @@ let g:jedi#popup_on_dot = 0
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+let g:jedi#force_py_version = 3
+
+let g:neosnippet#disable_runtime_snippets = {
+\   'go' : 1,
+\ }
+
+" vim-go key-binding
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
