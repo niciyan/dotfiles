@@ -50,6 +50,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('fatih/vim-go')
   call dein#add('cocopon/iceberg.vim')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -280,3 +281,10 @@ vmap gx <Plug>(openbrowser-smart-search)
 let cobol_legacy_code=0
 
 let g:neosnippet#disable_runtime_snippets = { 'go' : 1, }
+
+set updatetime=100
+
+" vim-go
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+
