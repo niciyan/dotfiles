@@ -1,4 +1,9 @@
-set guifont=Ubuntu\ Mono\ 13
+if has("mac")
+	set guifont=Monaco:h14
+	set imdisable
+elseif has("unix")
+	set guifont=Ubuntu\ Mono\ 13
+endif
 
 set background=dark
 colorscheme iceberg
