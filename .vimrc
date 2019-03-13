@@ -95,6 +95,10 @@ set incsearch
 set wildmenu
 set autoread
 
+if has("mac")
+	set clipboard=unnamed,autoselect	
+endif
+
 set background=dark
 colorscheme hybrid
 
