@@ -51,6 +51,7 @@ if dein#load_state($HOME.'/.vim')
   call dein#add('cocopon/iceberg.vim')
   call dein#add('tpope/vim-fugitive')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('yegappan/grep')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
