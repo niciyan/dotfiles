@@ -59,6 +59,7 @@ set smartcase
 set incsearch 
 set wildmenu
 set autoread
+set completeopt+=noinsert
 
 if has("mac")
 	set clipboard=unnamed,autoselect	
